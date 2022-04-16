@@ -38,11 +38,8 @@
     <!-- # Sidenav Left -->
     <!-- Offcanvas -->
     @yield('sidenav')
-    <div class="page-content-wrapper py-3">
-      <div class="container">
-          @yield('content')
-      </div>
-    </div>
+    <!-- Content -->
+    @yield('content')
     <!-- Footer Nav -->
     @yield('footer')
     <!-- All JavaScript Files -->

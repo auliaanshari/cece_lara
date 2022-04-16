@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePertandingansTable extends Migration
+class CreateGamesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreatePertandingansTable extends Migration
      */
     public function up()
     {
-        Schema::create('pertandingan', function (Blueprint $table) {
+        Schema::create('game', function (Blueprint $table) {
             $table->id();
-            $table->integer('pertandingan_ke');
+            $table->integer('game_ke');
             $table->foreignId('babak_id')->constrained('babak')->onUpdate('cascade')->onDelete('cascade');
         });
     }
@@ -27,6 +27,6 @@ class CreatePertandingansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pertandingan');
+        Schema::dropIfExists('game');
     }
 }

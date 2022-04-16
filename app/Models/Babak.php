@@ -19,6 +19,6 @@ class Babak extends Model
     ];
 
     public function pertandingan(){
-        return $this->hasMany(Pertandingan::class);
+        return $this->hasMany(Game::class);
     }
 }

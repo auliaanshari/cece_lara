@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class NilaiFactory extends Factory
+class PointFactory extends Factory
 {
     /**
      * Define the model's default state.

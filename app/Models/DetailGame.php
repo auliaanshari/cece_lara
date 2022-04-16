@@ -5,17 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Score extends Model
+class DetailGame extends Model
 {
     use HasFactory;
 
     public $timestamps = false;
 
-    protected $table = "score";
+    protected $table = "detail_game";
 
     protected $fillable = [
-        'id', 
-        'pertandingan_id',
+        'game_id',
         'team_id',
         'nilai',
         'bonus',
@@ -23,10 +22,10 @@ class Score extends Model
     ];
 
     public function pertandingan(){
-        return $this->belongsTo(Pertandingan::class);
+        return $this->belongsTo(Game::class, 'game_id');
     }
 
     public function team(){
-        return $this->belongsTo(Team::class);
+        return $this->belongsTo(Team::class, 'team_id');
     }
 }

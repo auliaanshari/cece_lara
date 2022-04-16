@@ -3,58 +3,61 @@
 @extends('layout.sidenav')
 
 @section('content')
-        <div class="card">
-            <div class="card-header p-3">
-                <div class="row">
-                    <div class="col-6">
-                        <h5 class="ps-2">CRUD Team</h5>
-                    </div>
-                    <div class="col-6 text-sm-right">
-                        <button id="addTeam" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modal_team"><i class="bi bi-plus-circle"></i></button>
-                    </div>
-                </div>    
-            </div>
-            <div class="card-body p-3">
-                <table class="w-100" id="table_team">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nama Team</th>
-                            <th>Asal Masjid</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-            <div class="modal fade" id="modal_team" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="tambahTeam" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h6 class="modal-title" id="tambahTeam">Tambah Team</h6>
-                            <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="page-content-wrapper py-3">
+        <div class="container">        
+            <div class="card">
+                <div class="card-header p-3">
+                    <div class="row">
+                        <div class="col-6">
+                            <h5 class="ps-2">CRUD Team</h5>
                         </div>
-                        <div class="modal-body">
-                            <form action="#" id="form_team">
-                                {{ csrf_field() }}
-                                <div class="form-group">
-                                    <label class="form-label" for="team_input">Nama Team</label>
-                                    <input class="form-control" id="team_input" type="text" placeholder="..." required>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="asal_input">Asal Masjid</label>
-                                    <input class="form-control" id="asal_input" type="text" placeholder="..." required>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-sm btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
-                                    <button class="btn btn-sm btn-success" type="submit">Simpan</button>
-                                </div>
-                            </form>
+                        <div class="col-6 text-sm-right">
+                            <button id="addTeam" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modal_team"><i class="bi bi-plus-circle"></i></button>
+                        </div>
+                    </div>    
+                </div>
+                <div class="card-body p-3">
+                    <table class="w-100" id="table_team">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nama Team</th>
+                                <th>Asal Masjid</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="modal fade" id="modal_team" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="tambahTeam" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h6 class="modal-title" id="tambahTeam">Tambah Team</h6>
+                                <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="#" id="form_team">
+                                    {{ csrf_field() }}
+                                    <div class="form-group">
+                                        <label class="form-label" for="team_input">Nama Team</label>
+                                        <input class="form-control" id="team_input" type="text" placeholder="..." required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="asal_input">Asal Masjid</label>
+                                        <input class="form-control" id="asal_input" type="text" placeholder="..." required>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-sm btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+                                        <button class="btn btn-sm btn-success" type="submit">Simpan</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
+    </div>    
 @endsection
 
 @section('js')

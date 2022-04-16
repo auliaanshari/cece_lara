@@ -16,7 +16,7 @@ use App\Http\Controllers\TeamController;
 */
 
 Route::get('/', function () {
-    return view('soal.soal');
+    return view('welcome');
 });
 
 Route::group(['prefix' => 'soal'], function(){
