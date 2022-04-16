@@ -10,7 +10,7 @@
                         <h5 class="ps-2">CRUD Soal</h5>
                     </div>
                     <div class="col-6 text-sm-right">
-                        <button id="add" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modal_soal"><i class="bi bi-plus-circle"></i></button>
+                        <button id="addSoal" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modal_soal"><i class="bi bi-plus-circle"></i></button>
                     </div>
                 </div>    
             </div>
@@ -18,7 +18,7 @@
                 <table class="w-100" id="table_soal">
                     <thead>
                         <tr>
-                            <th>ID Soal</th>
+                            <th>ID</th>
                             <th>Soal</th>
                             <th>Jawaban</th>
                             <th>Kategori Soal</th>
@@ -38,7 +38,7 @@
                             <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="#" id="form_soal" method="GET">
+                            <form action="#" id="form_soal">
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                     <label class="form-label" for="soal_input">Soal</label>
@@ -114,7 +114,7 @@
                             ],
                     });
             } loadData();
-            $(document).on('click', '#add', function() {
+            $(document).on('click', '#addSoal', function() {
                     $('#modal_soal').modal('show');
                     $('#form_soal').attr('action', '{{ url('soal/create') }}');
             });

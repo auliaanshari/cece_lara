@@ -16,7 +16,7 @@ class Team extends Model
     protected $fillable = [
         'id', 
         'nama_team',
-        'alamat'
+        'asal_masjid'
     ];
 
     public function score(){

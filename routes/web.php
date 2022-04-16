@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SoalController;
+use App\Http\Controllers\TeamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +25,12 @@ Route::group(['prefix' => 'soal'], function(){
     Route::post('/update/{id}', [SoalController::class, 'update']);
     Route::get('/delete/{id}', [SoalController::class, 'delete']);
     Route::get('/data', [SoalController::class, 'data']);
+});
+
+Route::group(['prefix' => 'team'], function(){
+    Route::get('/', function() { return view('team.team'); });
+    Route::post('/create', [TeamController::class, 'create']);
+    Route::post('/update/{id}', [TeamController::class, 'update']);
+    Route::get('/delete/{id}', [TeamController::class, 'delete']);
+    Route::get('/data', [TeamController::class, 'data']);
 });

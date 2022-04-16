@@ -18,7 +18,7 @@
           <ul class="sidenav-nav ps-0">
             <li><a href="{{ url('/') }}"><i class="bi bi-house-door"></i>Home</a></li>
             <li><a href="{{ url('/main') }}"><i class="bi bi-collection"></i>Main</a></li>
-            <li><a href="{{ url('/kelompok') }}"><i class="bi bi-people"></i>Kelompok</a></li>
+            <li><a href="{{ url('/team') }}"><i class="bi bi-people"></i>Kelompok</a></li>
             <li><a href="{{ url('/soal') }}"><i class="bi bi-folder2-open"></i>Soal</a></li>
             <li>
               <div class="night-mode-nav"><i class="bi bi-moon"></i>Night Mode
