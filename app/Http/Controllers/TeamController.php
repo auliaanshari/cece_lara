@@ -30,4 +30,10 @@ class TeamController extends Controller
     public function delete($id){
         Team::where('id', $id)->delete();
     }
+
+    public function combo_team()
+    {
+        $team = Team::all();
+        return $team->toJson();
+    }
 }

@@ -14,13 +14,11 @@ class Game extends Model
     protected $table = "game";
 
     protected $fillable = [
-        'id', 
-        'game_ke',
-        'babak_id'
+        'id','babak_id'
     ];
 
-    public function score(){
-        return $this->hasMany(Score::class);
+    public function detail_game(){
+        return $this->hasMany(DetailGame::class);
     }
 
     public function babak(){

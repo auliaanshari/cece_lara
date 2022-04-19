@@ -14,7 +14,7 @@
                 <div class="sec"><span class="num"></span><span class="word"></span></div>
             </div>
             <div class="notify-email mt-5">
-                <a class="btn btn-warning" href="{{ url('/main') }}">Mulai</a>
+                <a class="btn btn-warning" href="{{ url('/game') }}">Mulai</a>
             </div>
         </div>
     </div>

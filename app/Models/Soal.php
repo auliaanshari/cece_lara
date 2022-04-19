@@ -23,8 +23,8 @@ class Soal extends Model
         'status_id'
     ];
 
-    public function nilai(){
-        return $this->hasMany(Nilai::class);
+    public function point(){
+        return $this->hasMany(Point::class);
     }
 
     public function kategori_soal(){

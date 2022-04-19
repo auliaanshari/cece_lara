@@ -17,7 +17,7 @@
           <!-- Sidenav Nav -->
           <ul class="sidenav-nav ps-0">
             <li><a href="{{ url('/') }}"><i class="bi bi-house-door"></i>Home</a></li>
-            <li><a href="{{ url('/main') }}"><i class="bi bi-collection"></i>Main</a></li>
+            <li><a href="{{ url('/game') }}"><i class="bi bi-collection"></i>Game</a></li>
             <li><a href="{{ url('/team') }}"><i class="bi bi-people"></i>Kelompok</a></li>
             <li><a href="{{ url('/soal') }}"><i class="bi bi-folder2-open"></i>Soal</a></li>
             <li>

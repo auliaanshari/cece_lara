@@ -56,7 +56,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="kategori">Kategori Soal</label>
-                                        <select class="form-select" id="kategori" name="kategori" aria-label="Kategori">
+                                        <select class="form-select" id="kategori" name="kategori" aria-label="Kategori" required>
                                         <option value="">Pilih Kategori</option>
                                         <option value="1">Agama</option>
                                         <option value="2">BAM</option>
@@ -64,7 +64,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="jenis">Jenis Soal</label>
-                                        <select class="form-select" id="jenis" name="jenis" aria-label="Jenis">
+                                        <select class="form-select" id="jenis" name="jenis" aria-label="Jenis" required>
                                         <option value="">Pilih Jenis</option>
                                         <option value="1">Isian</option>
                                         <option value="2">Essay</option>
@@ -72,7 +72,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="status">Status</label>
-                                        <select class="form-select" id="status" name="status" aria-label="Status">
+                                        <select class="form-select" id="status" name="status" aria-label="Status" required>
                                         <option value="">Pilih Status</option>
                                         <option value="1">Belum Dimainkan</option>
                                         <option value="2">Sudah Dimainkan</option>

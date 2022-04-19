@@ -21,7 +21,7 @@ class DetailGame extends Model
         'total'
     ];
 
-    public function pertandingan(){
+    public function game(){
         return $this->belongsTo(Game::class, 'game_id');
     }
 
