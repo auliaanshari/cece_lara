@@ -65,7 +65,7 @@
                         </div>
                         <div class="modal-footer">
                             <button id="reset" class="btn btn-creative btn-secondary" type="button">Reset</button>
-                            <button id="mulai" class="btn m-1 btn-creative btn-success" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_mulai">Mulai Game</button>
+                            <button id="mulai" class="btn m-1 btn-creative btn-success" type="submit" data-bs-toggle="modal" data-bs-target="#konfirm_mulai">Mulai Game</button>
                         </div>
                     </form>
                 </div>
@@ -126,6 +126,21 @@
 
             $(document).on('click', '#mulai', function() {
                 $('#konfirm_mulai').modal('show');
+                $('#form_regist').attr('action', '{{ url('game/create') }}');
+            });
+
+            $('#form_regist').submit(function(e) {
+                    e.preventDefault();
+                    $.ajax({
+                        url: $(this).attr('action')+'?_token='+'{{ csrf_token() }}',
+                        type: 'post',
+                        data: {
+                            'babak_input': $('#ronde').val(),
+                        },
+                        success :function () {
+                            alert('Game telah ditambahkan.')
+                        },
+                    });
             });
 
             $(document).on('click', '#mulaigame', function() {
@@ -144,13 +159,14 @@
                 success: function(data) {
                     var team = jQuery.parseJSON(JSON.stringify(data));
                     $.each(team, function(k, v) {
-                        $('#team').append($('<option>', {value:v.id}).text(v.kode_kelas))
+                        $('#teamA').append($('<option>', {value:v.id}).text(v.nama_team));
+                        $('#teamB').append($('<option>', {value:v.id}).text(v.nama_team));
+                        $('#teamC').append($('<option>', {value:v.id}).text(v.nama_team));
                     })
                 }
             });
 
-            
-            // $('#form_team').submit(function(e) {
+            // $('#form_regist').submit(function(e) {
             //         e.preventDefault();
             //         $.ajax({
             //             url: $(this).attr('action')+'?_token='+'{{ csrf_token() }}',

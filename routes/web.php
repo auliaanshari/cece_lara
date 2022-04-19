@@ -35,6 +35,7 @@ Route::group(['prefix' => 'team'], function(){
     Route::post('/update/{id}', [TeamController::class, 'update']);
     Route::get('/delete/{id}', [TeamController::class, 'delete']);
     Route::get('/data', [TeamController::class, 'data']);
+    Route::get('/combo_team', [TeamController::class, 'combo_team']);
 });
 
 Route::group(['prefix' => 'game'], function(){
