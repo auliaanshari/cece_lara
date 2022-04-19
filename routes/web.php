@@ -38,14 +38,23 @@ Route::group(['prefix' => 'team'], function(){
     Route::get('/combo_team', [TeamController::class, 'combo_team']);
 });
 
-Route::group(['prefix' => 'game'], function(){
-    Route::get('/', function() { return view('game.regist'); });
-    Route::get('/penyisihan', function() { return view('game.penyisihan'); });
-    Route::get('/semi', function() { return view('game.semi'); });
-    Route::get('/final', function() { return view('game.final'); });
-    Route::get('/finish', function() { return view('game.finish'); });
-    Route::post('/create', [GameController::class, 'create']);
-    Route::post('/update/{id}', [TeamController::class, 'update']);
-    Route::get('/delete/{id}', [TeamController::class, 'delete']);
+Route::group(['prefix' => 'play'], function(){
+    Route::get('/', function() { return view('play.regist'); });
+    Route::get('/penyisihan', function() { return view('play.penyisihan'); });
+    Route::get('/semi', function() { return view('play.semi'); });
+    Route::get('/final', function() { return view('play.final'); });
+    Route::get('/finish', function() { return view('play.finish'); });
+    Route::post('/create', [DetailGameController::class, 'create']);
+    Route::post('/update/{id}', [DetailGameController::class, 'update']);
+    Route::get('/delete/{id}', [DetailGameController::class, 'delete']);
     Route::get('/data', [DetailGameController::class, 'data']);
+});
+
+Route::group(['prefix' => 'game'], function(){
+    Route::get('/', function() { return view('game.game'); });
+    Route::post('/create', [GameController::class, 'create']);
+    Route::post('/update/{id}', [GameController::class, 'update']);
+    Route::get('/delete/{id}', [GameController::class, 'delete']);
+    Route::get('/data', [GameController::class, 'data']);
+    Route::get('/combo_game', [GameController::class, 'combo_game']);
 });

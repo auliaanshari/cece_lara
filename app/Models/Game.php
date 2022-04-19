@@ -14,7 +14,9 @@ class Game extends Model
     protected $table = "game";
 
     protected $fillable = [
-        'id','babak_id'
+        'id',
+        'game_ke',
+        'babak_id'
     ];
 
     public function detail_game(){
