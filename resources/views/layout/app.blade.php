@@ -49,6 +49,7 @@
     <!-- <script src="{{ asset('js/countdown.js') }}"></script> -->
     <script src="{{ asset('js/datatables.min.js') }}"></script>
     <script src="{{ asset('js/dark-rtl.js') }}"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     
     @yield('js')
   </body>

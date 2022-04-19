@@ -1,4 +1,4 @@
-/* -----------------------
+  /* -----------------------
 [Master Stylesheet]
 
 Template Name: Affan - PWA Mobile HTML Template
@@ -1324,7 +1324,7 @@ img {
 }
 @media only screen and (min-width:1200px) and (max-width:1399px) {
   .container {
-    max-width: 740px;
+    max-width: 760px;
   }
 }
 @media only screen and (min-width:992px) and (max-width:1199px) {
