@@ -11,7 +11,7 @@
                         <div class="col-6">
                             <h5 class="ps-2">Game</h5>
                         </div>
-                        <div class="col-6 text-sm-right">
+                        <div class="col-6 text-sm-right d-flex justify-content-end">
                             <button id="score" class="btn m-1 btn-creative btn-info" type="button" data-bs-toggle="modal" data-bs-target="#modal_score">Score</button>
                             <button id="finish" class="btn m-1 btn-creative btn-warning" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_finish">Finish</button>
                         </div>
@@ -64,19 +64,18 @@
                         <div class="modal fade" id="pilih_team" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h6 class="modal-title" id="pilihteam">Pilih Team</h6>
-                                        <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
+                                    {{-- <div class="modal-header">
+                                        <h6 class="modal-title fs-2" id="pilihteam">Pilih Team</h6>
+                                    </div> --}}
+                                    <div class="modal-body mb-2">
+                                        <button class="btn btn-close p-1 ms-auto d-flex justify-content-end" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                         <form action="#" id="form_pilih">
-                                            <p class="mb-0">Pilih team yang akan menjawab : </p>
-                                            <button id="teamA" class="btn m-1 btn-creative btn-success" type="button" data-bs-toggle="modal" data-bs-target="#modal_soal">A</button>
-                                            <button id="team" class="btn btn-sm btn-success" type="submit">A</button>
-                                            <button id="teamB" class="btn btn-sm btn-success" type="submit">B</button>
-                                            <button id="teamC" class="btn btn-sm btn-success" type="submit">C</button>
-                                            <div class="modal-footer">
-                                                <button class="btn btn-sm btn-secondary" type="button" data-bs-dismiss="modal">Cancel</button>
+                                            <p class="mb-0 fs-3">Pilih team yang akan menjawab : </p>
+                                            <div class="row d-flex justify-content-center">
+                                                <button id="teamA" class="btn col-2 mx-2 py-2 fs-1 btn-creative btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#modal_soal">A</button>
+                                                <button id="teamA" class="btn col-2 mx-2 py-2 fs-1 btn-creative text-light btn-warning" type="button" data-bs-toggle="modal" data-bs-target="#modal_soal">B</button>
+                                                <button id="teamA" class="btn col-2 mx-2 py-2 fs-1 btn-creative btn-success" type="button" data-bs-toggle="modal" data-bs-target="#modal_soal">C</button>
+                                                <button id="teamA" class="btn col-2 mx-2 py-2 fs-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modal_soal">P</button>
                                             </div>
                                         </form>
                                     </div>
@@ -96,9 +95,6 @@
                                             <p class="mb-0">Timer : XXX </p>
                                             <button id="benar" class="btn m-1 btn-creative btn-success" type="button" data-bs-toggle="modal" data-bs-target="#modal_benar">Benar</button>
                                             <button id="salah" class="btn m-1 btn-creative btn-warning" type="button" data-bs-toggle="modal" data-bs-target="#modal_salah">Salah</button>
-                                            <div class="modal-footer">
-                                                <button class="btn btn-sm btn-secondary" type="button" data-bs-dismiss="modal">Cancel</button>
-                                            </div>
                                         </form>
                                     </div>
                                 </div>
@@ -108,15 +104,15 @@
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h6 class="modal-title" id="modalbenar">Alert</h6>
                                         <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <form action="#" id="form_benar">
-                                            <p class="mb-0">BENAR </p>
-                                            <div class="modal-footer">
-                                                <button class="btn btn-sm btn-secondary" type="button" data-bs-dismiss="modal">Cancel</button>
-                                                <button class="btn btn-sm btn-success" type="submit">OK</button>
+                                            <div class="d-flex justify-content-center">
+                                                <lottie-player src="https://assets4.lottiefiles.com/temp/lf20_hT22rr.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+                                            </div>
+                                            <div class="d-flex justify-content-center">
+                                                <h1>Benar</h1>
                                             </div>
                                         </form>
                                     </div>
@@ -127,15 +123,15 @@
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h6 class="modal-title" id="modalsalah">Alert</h6>
                                         <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <form action="#" id="form_salah">
-                                            <p class="mb-0">SALAH </p>
-                                            <div class="modal-footer">
-                                                <button class="btn btn-sm btn-secondary" type="button" data-bs-dismiss="modal">Cancel</button>
-                                                <button class="btn btn-sm btn-success" type="submit">OK</button>
+                                            <div class="d-flex justify-content-center">
+                                                <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_geewpiaj.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+                                            </div>
+                                            <div class="d-flex justify-content-center">
+                                                <h1>Salah</h1>
                                             </div>
                                         </form>
                                     </div>
@@ -145,89 +141,81 @@
                     </div>    
                 </div>
                 <div class="card-body p-3">
-                    <div class="row">
-                        <div class="col-2">
-                            <button id="pindah" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#pilih_team">1</button>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-2 bg-primary py-2 m-1 rounded" data-bs-toggle="modal" data-bs-target="#pilih_team">
+                            <h1 class="text-light text-center py-3 my-2">1</h1>
                         </div>
-                        <div class="col-2">
-                            <button id="pindah" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_pindah">2</button>
+                        <div class="col-2 bg-primary py-2 m-1 rounded" data-bs-toggle="modal" data-bs-target="#pilih_team">
+                            <h1 class="text-light text-center py-3 my-2">2</h1>
                         </div>
-                        <div class="col-2">
-                            <button id="pindah" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_pindah">3</button>
+                        <div class="col-2 bg-primary py-2 m-1 rounded" data-bs-toggle="modal" data-bs-target="#pilih_team">
+                            <h1 class="text-light text-center py-3 my-2">3</h1>
                         </div>
-                        <div class="col-2">
-                            <button id="pindah" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_pindah">4</button>
+                        <div class="col-2 bg-primary py-2 m-1 rounded" data-bs-toggle="modal" data-bs-target="#pilih_team">
+                            <h1 class="text-light text-center py-3 my-2">4</h1>
                         </div>
-                        <div class="col-2">
-                            <button id="pindah" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_pindah">5</button>
+                        <div class="col-2 bg-primary py-2 m-1 rounded" data-bs-toggle="modal" data-bs-target="#pilih_team">
+                            <h1 class="text-light text-center py-3 my-2">5</h1>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2">
-                            <button id="pindah" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_pindah">6</button>
+                        <div class="col-2 bg-primary py-2 m-1 rounded" data-bs-toggle="modal" data-bs-target="#pilih_team">
+                            <h1 class="text-light text-center py-3 my-2">6</h1>
                         </div>
-                        <div class="col-2">
-                            <button id="pindah" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_pindah">7</button>
+                        <div class="col-2 bg-primary py-2 m-1 rounded" data-bs-toggle="modal" data-bs-target="#pilih_team">
+                            <h1 class="text-light text-center py-3 my-2">7</h1>
                         </div>
-                        <div class="col-2">
-                            <button id="pindah" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_pindah">8</button>
+                        <div class="col-2 bg-primary py-2 m-1 rounded" data-bs-toggle="modal" data-bs-target="#pilih_team">
+                            <h1 class="text-light text-center py-3 my-2">8</h1>
                         </div>
-                        <div class="col-2">
-                            <button id="pindah" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_pindah">9</button>
+                        <div class="col-2 bg-primary py-2 m-1 rounded" data-bs-toggle="modal" data-bs-target="#pilih_team">
+                            <h1 class="text-light text-center py-3 my-2">9</h1>
                         </div>
-                        <div class="col-2">
-                            <button id="pindah" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_pindah">10</button>
+                        <div class="col-2 bg-primary py-2 m-1 rounded" data-bs-toggle="modal" data-bs-target="#pilih_team">
+                            <h1 class="text-light text-center py-3 my-2">10</h1>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2">
-                            <button id="pindah" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_pindah">11</button>
+                        <div class="col-2 bg-primary py-2 m-1 rounded" data-bs-toggle="modal" data-bs-target="#pilih_team">
+                            <h1 class="text-light text-center py-3 my-2">11</h1>
                         </div>
-                        <div class="col-2">
-                            <button id="pindah" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_pindah">12</button>
+                        <div class="col-2 bg-primary py-2 m-1 rounded" data-bs-toggle="modal" data-bs-target="#pilih_team">
+                            <h1 class="text-light text-center py-3 my-2">12</h1>
                         </div>
-                        <div class="col-2">
-                            <button id="pindah" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_pindah">13</button>
+                        <div class="col-2 bg-primary py-2 m-1 rounded" data-bs-toggle="modal" data-bs-target="#pilih_team">
+                            <h1 class="text-light text-center py-3 my-2">13</h1>
                         </div>
-                        <div class="col-2">
-                            <button id="pindah" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_pindah">14</button>
+                        <div class="col-2 bg-primary py-2 m-1 rounded" data-bs-toggle="modal" data-bs-target="#pilih_team">
+                            <h1 class="text-light text-center py-3 my-2">14</h1>
                         </div>
-                        <div class="col-2">
-                            <button id="pindah" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_pindah">15</button>
+                        <div class="col-2 bg-primary py-2 m-1 rounded" data-bs-toggle="modal" data-bs-target="#pilih_team">
+                            <h1 class="text-light text-center py-3 my-2">15</h1>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2">
-                            <button id="pindah" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_pindah">16</button>
+                        <div class="col-2 bg-primary py-2 m-1 rounded" data-bs-toggle="modal" data-bs-target="#pilih_team">
+                            <h1 class="text-light text-center py-3 my-2">16</h1>
                         </div>
-                        <div class="col-2">
-                            <button id="pindah" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_pindah">17</button>
+                        <div class="col-2 bg-primary py-2 m-1 rounded" data-bs-toggle="modal" data-bs-target="#pilih_team">
+                            <h1 class="text-light text-center py-3 my-2">17</h1>
                         </div>
-                        <div class="col-2">
-                            <button id="pindah" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_pindah">18</button>
+                        <div class="col-2 bg-primary py-2 m-1 rounded" data-bs-toggle="modal" data-bs-target="#pilih_team">
+                            <h1 class="text-light text-center py-3 my-2">18</h1>
                         </div>
-                        <div class="col-2">
-                            <button id="pindah" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_pindah">19</button>
+                        <div class="col-2 bg-primary py-2 m-1 rounded" data-bs-toggle="modal" data-bs-target="#pilih_team">
+                            <h1 class="text-light text-center py-3 my-2">19</h1>
                         </div>
-                        <div class="col-2">
-                            <button id="pindah" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_pindah">20</button>
+                        <div class="col-2 bg-primary py-2 m-1 rounded" data-bs-toggle="modal" data-bs-target="#pilih_team">
+                            <h1 class="text-light text-center py-3 my-2">20</h1>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2">
-                            <button id="pindah" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_pindah">21</button>
+                        <div class="col-2 bg-primary py-2 m-1 rounded" data-bs-toggle="modal" data-bs-target="#pilih_team">
+                            <h1 class="text-light text-center py-3 my-2">21</h1>
                         </div>
-                        <div class="col-2">
-                            <button id="pindah" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_pindah">22</button>
+                        <div class="col-2 bg-primary py-2 m-1 rounded" data-bs-toggle="modal" data-bs-target="#pilih_team">
+                            <h1 class="text-light text-center py-3 my-2">22</h1>
                         </div>
-                        <div class="col-2">
-                            <button id="pindah" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_pindah">23</button>
+                        <div class="col-2 bg-primary py-2 m-1 rounded" data-bs-toggle="modal" data-bs-target="#pilih_team">
+                            <h1 class="text-light text-center py-3 my-2">23</h1>
                         </div>
-                        <div class="col-2">
-                            <button id="pindah" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_pindah">24</button>
+                        <div class="col-2 bg-primary py-2 m-1 rounded" data-bs-toggle="modal" data-bs-target="#pilih_team">
+                            <h1 class="text-light text-center py-3 my-2">24</h1>
                         </div>
-                        <div class="col-2">
-                            <button id="pindah" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_pindah">25</button>
+                        <div class="col-2 bg-primary py-2 m-1 rounded" data-bs-toggle="modal" data-bs-target="#pilih_team">
+                            <h1 class="text-light text-center py-3 my-2">25</h1>
                         </div>
                     </div>
                 </div>

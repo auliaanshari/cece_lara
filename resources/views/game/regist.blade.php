@@ -11,7 +11,7 @@
                         <div class="col-6">
                             <h5 class="ps-2">Register Game</h5>
                         </div>
-                        <div class="col-6 text-sm-right">
+                        <div class="col-6 text-sm-right d-flex justify-content-end">
                             <button id="pindah" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#konfirm_pindah">Tambah Team</button>
                         </div>
                         <div class="modal fade" id="konfirm_pindah" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
