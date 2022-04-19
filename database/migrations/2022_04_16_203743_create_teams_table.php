@@ -16,7 +16,7 @@ class CreateTeamsTable extends Migration
         Schema::create('team', function (Blueprint $table) {
             $table->id();
             $table->string('nama_team', 30);
-            $table->string('alamat', 30);
+            $table->string('asal_masjid', 30);
         });
     }
 

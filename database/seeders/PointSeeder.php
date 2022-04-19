@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class ScoreSeeder extends Seeder
+class PointSeeder extends Seeder
 {
     /**
      * Run the database seeds.

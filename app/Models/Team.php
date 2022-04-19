@@ -16,14 +16,14 @@ class Team extends Model
     protected $fillable = [
         'id', 
         'nama_team',
-        'alamat'
+        'asal_masjid'
     ];
 
-    public function score(){
-        return $this->hasMany(Score::class);
+    public function detail_game(){
+        return $this->hasMany(DetailGame::class);
     }
 
-    public function nilai(){
-        return $this->hasMany(Nilai::class);
+    public function point(){
+        return $this->hasMany(Point::class);
     }
 }

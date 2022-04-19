@@ -5,25 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Pertandingan extends Model
+class Game extends Model
 {
     use HasFactory;
 
     public $timestamps = false;
 
-    protected $table = "pertandingan";
+    protected $table = "game";
 
     protected $fillable = [
-        'id', 
-        'pertandingan_ke',
-        'babak_id'
+        'id','babak_id'
     ];
 
-    public function score(){
-        return $this->hasMany(Score::class);
+    public function detail_game(){
+        return $this->hasMany(DetailGame::class);
     }
 
     public function babak(){
-        return $this->belongsTo(Babak::class);
+        return $this->belongsTo(Babak::class, 'babak_id');
     }
 }
