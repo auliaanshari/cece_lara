@@ -91,10 +91,21 @@
                                     </div>
                                     <div class="modal-body">
                                         <form action="#" id="form_soal">
-                                            <p class="mb-0">Soal : <span id="soalnya"></span></p>
-                                            <p class="mb-0">Timer : XXX </p>
-                                            <button id="benar" class="btn m-1 btn-creative btn-success" type="button" data-bs-toggle="modal" data-bs-target="#modal_benar">Benar</button>
-                                            <button id="salah" class="btn m-1 btn-creative btn-warning" type="button" data-bs-toggle="modal" data-bs-target="#modal_salah">Salah</button>
+                                            <h4 class="mb-0">Soal : <span id="soalnya"></span></h4>
+                                            <div class="col-12" id="clockdiv">
+                                                <div>
+                                                    <span class="minutes" id="minute"></span>
+                                                </div>
+                                                <div>
+                                                    <span class="seconds" id="second"></span>
+                                                </div>
+                                                <button id="startCountdown" class="btn m-1 btn-creative btn-success" type="button">Mulai</button>
+                                            </div>
+                                            <p id="demo"></p>
+                                            <div class="d-flex justify-content-end">
+                                                <button id="benar" class="btn m-1 btn-creative btn-success" type="button" data-bs-toggle="modal" data-bs-target="#modal_benar">Benar</button>
+                                                <button id="salah" class="btn m-1 btn-creative btn-warning" type="button" data-bs-toggle="modal" data-bs-target="#modal_salah">Salah</button>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
@@ -177,6 +188,25 @@
                 });
             })
         };
+
+        let deadline = new Date("apr 21, 2022 15:37:25").getTime();
+        console.log(deadline);
+        
+        let x = setInterval(function() {
+            let now = new Date().getTime();
+            let t = deadline - now;
+            let minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((t % (1000 * 60)) / 1000);
+            document.getElementById("minute").innerHTML = minutes; 
+            document.getElementById("second").innerHTML =seconds; 
+            if (t < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "TIME UP";
+                document.getElementById("minute").innerHTML ='0' ; 
+                document.getElementById("second").innerHTML = '0'; }
+        }, 1000);
+    </script>
+    <script>
         $(document).ready( function () {
             
             function loadData() {
