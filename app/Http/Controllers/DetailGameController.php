@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\DetailGame;
 use App\Models\Game;
 use App\Models\Team;
+use App\Models\Soal;
 use DataTables;
 
 class DetailGameController extends Controller
@@ -32,7 +33,17 @@ class DetailGameController extends Controller
         $create3->game_id = $request->game_input;
         $create3->team_id = '999';
         $create3->save();
-        
+    }
+
+    public function penyisihan($id){
+        $soal = Soal::limit('25')->get();
+        $game = $id;
+        $team = DetailGame::where('game_id', 13)->get();
+        $no = 1;
+        foreach($team as $t){
+            ${'tim'.$no++} = $t->team_id;
+        }
+        return view('play.penyisihan', compact(['soal','tim1', 'tim2', 'tim3', 'tim4', 'game']));
     }
 
     public function update(Request $request, $id){

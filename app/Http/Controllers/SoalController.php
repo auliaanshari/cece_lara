@@ -16,6 +16,11 @@ class SoalController extends Controller
         return DataTables::of($soal)->toJson();
     }
 
+    public function pilihsoal($id){
+        $soal = Soal::where('id', $id)->get();
+        return $soal->toJson();
+    }
+
     public function create(Request $request){
         $create = new Soal();
         $create->soal = $request->soal_input;

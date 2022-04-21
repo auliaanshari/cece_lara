@@ -150,27 +150,6 @@
 @section('js')
     <script>
         $(document).ready( function () {
-            // function loadData() {
-            //     $.ajax({
-            //         url: '{{ url('play/data') }}',
-            //         dataType: "json",
-            //         success: function(data) {
-            //             var tim = jQuery.parseJSON(JSON.stringify(data));
-            //             for(var tes in tim) {
-            //                 var itemA = tim[0];
-            //                 var itemB = tim[1];
-            //                 var itemC = tim[2];
-            //             }
-            //             $('#babakReg').append(itemA.game.babak.babak);
-            //             $('#gameReg').append(itemA.game.game_ke);
-            //             $('#teamAReg').append(itemA.team.nama_team);
-            //             $('#teamBReg').append(itemB.team.nama_team);
-            //             $('#teamCReg').append(itemC.team.nama_team);
-            //         }
-            //     });
-            // } loadData();
-
-            
             $(document).on('click', '#pindahgame', function() {
                 $('#konfirm_pindah_game').modal('show');
                 $('#modal_game').modal('hide');
@@ -202,6 +181,8 @@
             });
 
             $('#form_rinci').submit(function(e) {
+                    let id_game = $('#pilihgame').val();
+                    console.log(id_game);
                     e.preventDefault();
                     $.ajax({
                         url: $(this).attr('action')+'?_token='+'{{ csrf_token() }}',
@@ -213,10 +194,9 @@
                             'teamC_input': $('#teamC').val(),
                         },
                         success :function () {
-                            alert('Game telah ditambahkan.');
-                            window.location.href='{{ url('play/penyisihan') }}';
-                        },
-
+                            alert('Game telah ditambahkan.')
+                            window.location.href='{{ url('play/penyisihan') }}/'+id_game;
+                        }
                     });
             });
 
