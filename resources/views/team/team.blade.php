@@ -11,7 +11,7 @@
                         <div class="col-6">
                             <h5 class="ps-2">CRUD Team</h5>
                         </div>
-                        <div class="col-6 text-sm-right">
+                        <div class="col-6 d-flex justify-content-end">
                             <button id="addTeam" class="btn m-1 btn-creative btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modal_team"><i class="bi bi-plus-circle"></i></button>
                         </div>
                     </div>    

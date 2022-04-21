@@ -3665,10 +3665,10 @@ form .btn.btn-sm {
 
 .cs-logo a {
   display: block;
-  margin-bottom: 2.75rem;
+  /* margin-bottom: 2.75rem; */
 }
 .cs-logo a img {
-  max-height: 2rem;
+  max-height: 6rem;
 }
 
 .cs-newsletter-form .modal-body {
@@ -8729,4 +8729,29 @@ input[type=color].form-control.is-valid, input[type=color].form-control:valid {
 }
 [data-theme=dark] body .single-plan-check {
   border-color: rgba(255, 255, 255, 0.1);
+}
+
+#clockdiv{
+    font-family: sans-serif;
+    color: #fff;
+    display: inline-block;
+    font-weight: 100;
+    text-align: center;
+    font-size: 30px;
+}
+#clockdiv > div{
+    padding: 10px;
+    border-radius: 3px;
+    background: #00BF96;
+    display: inline-block;
+}
+#clockdiv div > span{
+    padding: 15px;
+    border-radius: 3px;
+    background: #00816A;
+    display: inline-block;
+}
+.smalltext{
+    padding-top: 5px;
+    font-size: 16px;
 }
