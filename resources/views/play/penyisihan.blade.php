@@ -9,7 +9,7 @@
                 <div class="card-header p-3">
                     <div class="row">
                         <div class="col-6">
-                            <h5 class="ps-2">ID Game : <span id="game_id">{{ $game }}</span></h5>
+                            <h5 class="ps-2">ID Game : <span id="game_id" data-id="{{ $game }}">{{ $game }}</span></h5>
                         </div>
                         <div class="col-6 text-sm-right d-flex justify-content-end">
                             <button id="score" class="btn m-1 btn-creative btn-info" type="button" data-bs-toggle="modal" data-bs-target="#modal_score">Score</button>
@@ -25,15 +25,8 @@
                                     <div class="modal-body">
                                         <form action="#" id="form_score">
                                             <p class="mb-0">Score</p>
-                                            <table class="w-100" id="table_score">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Nama Team</th>
-                                                        <th>Asal Masjid</th>
-                                                        <th>Score</th>
-                                                    </tr>
-                                                </thead>
-                                            </table>
+                                            <div class="row d-flex justify-content-center">
+                                            </div>
                                             <div class="modal-footer">
                                                 <button class="btn btn-sm btn-secondary" type="button" data-bs-dismiss="modal">Keluar</button>
                                             </div>
@@ -72,10 +65,10 @@
                                         <form action="#" id="form_pilih">
                                             <p class="mb-0 fs-3">Pilih team yang akan menjawab : </p>
                                             <div class="row d-flex justify-content-center">
-                                                <button id="{{ $tim1 }}" class="btn col-2 mx-2 py-2 fs-1 btn-creative btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#modal_soal">A</button>
-                                                <button id="{{ $tim2 }}" class="btn col-2 mx-2 py-2 fs-1 btn-creative text-light btn-warning" type="button" data-bs-toggle="modal" data-bs-target="#modal_soal">B</button>
-                                                <button id="{{ $tim3 }}" class="btn col-2 mx-2 py-2 fs-1 btn-creative btn-success" type="button" data-bs-toggle="modal" data-bs-target="#modal_soal">C</button>
-                                                <button id="{{ $tim4 }}" class="btn col-2 mx-2 py-2 fs-1 btn-creative btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#modal_soal">P</button>
+                                                <button id="{{ $tim1 }}" onclick="pilihTeam({{ $tim1 }})" class="btn col-2 mx-2 py-2 fs-1 btn-creative btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#modal_soal">A</button>
+                                                <button id="{{ $tim2 }}" onclick="pilihTeam({{ $tim2 }})" class="btn col-2 mx-2 py-2 fs-1 btn-creative text-light btn-warning" type="button" data-bs-toggle="modal" data-bs-target="#modal_soal">B</button>
+                                                <button id="{{ $tim3 }}" onclick="pilihTeam({{ $tim3 }})" class="btn col-2 mx-2 py-2 fs-1 btn-creative btn-success" type="button" data-bs-toggle="modal" data-bs-target="#modal_soal">C</button>
+                                                <button id="{{ $tim4 }}" onclick="pilihTeam({{ $tim4 }})" class="btn col-2 mx-2 py-2 fs-1 btn-creative btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#modal_soal">P</button>
                                             </div>
                                         </form>
                                     </div>
@@ -91,7 +84,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <form action="#" id="form_soal">
-                                            <h4 class="mb-0">Soal : <span id="soalnya"></span></h4>
+                                            <h4 class="mb-0"><span id="soalnya"></span></h4>
                                             <div class="col-12" id="clockdiv">
                                                 <div>
                                                     <span class="minutes" id="minute"></span>
@@ -144,6 +137,7 @@
                                             </div>
                                             <div class="d-flex justify-content-center">
                                                 <h1>Salah</h1>
+                                                <button id="kembali" class="btn btn-sm btn-warning" type="button" data-bs-toggle="modal" data-bs-target="#pilih_team">Kembali</button>
                                             </div>
                                         </form>
                                     </div>
@@ -173,10 +167,11 @@
 @section('js')
     <script>
         function pilihSoal($id){
-            console.log($id);
+            soalid = $id;
+            console.log(soalid);
             $(document).ready( function (){
                 $.ajax({
-                    url: '{{ url('soal/pilihsoal') }}/'+$id,
+                    url: '{{ url('soal/pilihsoal') }}/'+soalid,
                     dataType: "json",
                     success: function(data) {
                         var soal = jQuery.parseJSON(JSON.stringify(data));
@@ -189,7 +184,15 @@
             })
         };
 
-        let deadline = new Date("apr 21, 2022 15:37:25").getTime();
+        function pilihTeam($id){
+            teamid = $id;
+            console.log("team : "+teamid);
+            console.log("soal : "+soalid);
+            gameid = $('#game_id').data("id");
+            console.log(gameid);
+        };
+
+        let deadline = new Date("apr 23, 2022 13:15:00").getTime();
         console.log(deadline);
         
         let x = setInterval(function() {
@@ -204,14 +207,40 @@
                 document.getElementById("demo").innerHTML = "TIME UP";
                 document.getElementById("minute").innerHTML ='0' ; 
                 document.getElementById("second").innerHTML = '0'; }
-        }, 1000);
+        }, 1000)
+
+        $(document).ready( function () {
+            $(document).on('click', '#benar', function() {
+                    $('#modal_benar').modal('show');
+                    $('#form_benar').attr('action', '{{ url('point/create') }}');
+            });
+            $('#form_benar').submit(function(e) {
+                    e.preventDefault();
+                    $.ajax({
+                        url: $(this).attr('action')+'?_token='+'{{ csrf_token() }}',
+                        type: 'post',
+                        data: {
+                            'game_input': gameid,
+                            'team_input': teamid,
+                            'soal_input': soalid,
+                            'point_input': 100,
+                        },
+                        success :function () {
+                            alert('Selamat !')
+                            // $('#table_soal').DataTable().destroy();
+                            // loadData();
+                            // $('#modal_soal').modal('hide');
+                        },
+                    });
+            });
+        });
     </script>
     <script>
         $(document).ready( function () {
             
             function loadData() {
                 $('#table_team').dataTable({
-                    "ajax": "{{ url('/team/data') }}",
+                    "ajax": "{{ url('/point/data_skor') }}/",
                             "columns": [
                                 { "data": "id" },
                                 { "data": "nama_team" },
@@ -227,29 +256,6 @@
                             ],
                     });
             } loadData();
-
-            $(document).on('click', '#benar', function() {
-                    $('#modal_benar').modal('show');
-                    $('#form_benar').attr('action', '{{ url('point/create') }}');
-            });
-            $('#form_benar').submit(function(e) {
-                    e.preventDefault();
-                    $.ajax({
-                        url: $(this).attr('action')+'?_token='+'{{ csrf_token() }}',
-                        type: 'post',
-                        data: {
-                            'game_input': $('#gameid'),
-                            'team_input': $('#tim1').val(),
-                            'soal_input': $('#idsoal').val(),
-                            'point_input': 100,
-                        },
-                        success :function () {
-                            // $('#table_soal').DataTable().destroy();
-                            // loadData();
-                            // $('#modal_soal').modal('hide');
-                        },
-                    });
-            });
 
             $(document).on('click', '#finish', function() {
                     $('#konfirm_pindah').modal('show');

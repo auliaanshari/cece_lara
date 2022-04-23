@@ -8,6 +8,7 @@ use App\Models\Soal;
 use App\Models\Game;
 use App\Models\Team;
 use DataTables;
+use Illuminate\Support\Facades\DB;
 
 class PointController extends Controller
 {
@@ -23,6 +24,10 @@ class PointController extends Controller
         $create->soal_id = $request->soal_input;
         $create->point = $request->point_input;
         $create->save();
+        $update = Soal::find($request->soal_input);
+        $update->status_id = 2;
+        $update->save();
+
     }
 
     public function update(Request $request, $id){

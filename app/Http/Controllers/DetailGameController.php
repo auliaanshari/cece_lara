@@ -7,7 +7,9 @@ use App\Models\DetailGame;
 use App\Models\Game;
 use App\Models\Team;
 use App\Models\Soal;
+use App\Models\Point;
 use DataTables;
+use Illuminate\Support\Facades\DB;
 
 class DetailGameController extends Controller
 {
@@ -36,9 +38,9 @@ class DetailGameController extends Controller
     }
 
     public function penyisihan($id){
-        $soal = Soal::limit('25')->get();
+        $soal = Soal::inRandomOrder()->where('status_id', 1)->where('jenis_id',1)->limit('25')->get();
         $game = $id;
-        $team = DetailGame::where('game_id', 13)->get();
+        $team = DetailGame::where('game_id', $game)->get();
         $no = 1;
         foreach($team as $t){
             ${'tim'.$no++} = $t->team_id;
